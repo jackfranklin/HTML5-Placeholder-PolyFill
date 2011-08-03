@@ -6,8 +6,11 @@ Just give fields the placeholder attribute. In browsers that support HTML5's pla
 
 #Current Issues
 Things I will be fixing in the future
+
 1. Only works on inputs of type 'text', none of the new fields types added in HTML5 (email, tel, etc)
+
 2. Should be re-factored into a jQuery extension.
+
 3. Would also like to branch into a non-jQuery version too.
 
 #Suggestions?
