@@ -17,30 +17,33 @@ var placeholderFix = function() {
     
     if(!('placeholder' in document.createElement("input"))) {
         var inputs = document.getElementsByTagName("input"); 
-        var origColours = {};
         for(var i = 0; i < inputs.length; i++)
         {
-            var curInput = inputs[i];
-            console.log(curInput);
-            origColours[i] = curInput.style.color;
-            if(curInput.getAttribute("type") !== "text") break;
-            curInput.setAttribute("value", curInput.getAttribute("placeholder"));
-            curInput.style.color = "#585858";
+            inputs[i].setAttribute("data-initial-colour",inputs[i].style.color);
+            if(inputs[i].getAttribute("type") !== "text") break;
+            inputs[i].setAttribute("value", inputs[i].getAttribute("placeholder"));
+            inputs[i].style.color = "#585858";
 
-            curInput.onfocus = function() {
-                console.log("Focused: ", this);
-                if(this.getAttribute("value") === this.getAttribute("placeholder")) {
-                    this.setAttribute("value","");
-                    this.style.color = origColours[i];
-                }
-            }
-            curInput.onblur = function() {
-                if(this.getAttribute("value") === "") {
-                    this.setAttribute("value", this.getAttribute("placeholder"));
-                    this.style.color = "#585858";
-                }
-            }
+            inputs[i].onfocus = function() {
+                (function(theInput) {
+                    console.log(theInput);
+                    if(theInput.getAttribute("value") === theInput.getAttribute("placeholder")) {
+                        theInput.setAttribute("value","");
+                        theInput.style.color = theInput.getAttribute("data-initial-colour");
+                    }
 
+                })(this);
+                
+            }
+            inputs[i].onblur = function() {
+                (function(theInput) {
+                    if(theInput.getAttribute("value") === "") {
+                        theInput.setAttribute("value", theInput.getAttribute("placeholder"));
+                        theInput.style.color="#585858";
+                    }
+                })(this);
+
+            }
         }
 
     }
