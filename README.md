@@ -1,6 +1,9 @@
 #HTML5 Placeholder PolyFill
 Firstly, I know this is nothing new and I'm sure a lot of other people have written this kind of script before, but I wrote this a while back and finally got round to chucking it on Github, much for my sake as well as anyone else's.
 
+#Please Note!
+The non-jQuery version is still a bit of a WIP, needs to be refined a bit.
+
 #Usage
 The file placeholder-fix.js comes with 2 versions of the code, a jQuery version and a pure JS version. Include the file and then delete the version you're not using. If you're using the non-jQuery version, you need to tell the function to run, probably on `window.onload` :
 
