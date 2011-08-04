@@ -5,6 +5,46 @@
  
  */
 
+//JavaScript only Version
+
+var placeholderFix = function() {
+    
+    if(!('placeholder' in document.createElement("input"))) {
+        var inputs = document.getElementsByTagName("input"); 
+        var origColours = {};
+        for(var i = 0; i < inputs.length; i++)
+        {
+            console.log(i);
+            console.log(inputs[i]);
+            var curInput = inputs[i];
+            origColours[i] = curInput.style.color;
+            if(curInput.getAttribute("type") !== "text") break;
+            curInput.setAttribute("value", curInput.getAttribute("placeholder"));
+            curInput.style.color = "#585858";
+
+            curInput.onfocus = function() {
+                if(curInput.getAttribute("value") === curInput.getAttribute("placeholder")) {
+                    curInput.setAttribute("value","");
+                    curInput.style.color = origColours[i];
+                }
+            }
+            curInput.onblur = function() {
+                if(curInput.getAttribute("value") === "") {
+                    curInput.setAttribute("value", curInput.getAttribute("placeholder"));
+                    curInput.style.color = "#585858";
+                }
+            }
+
+        }
+
+    }
+
+}
+
+
+
+//jQuery Version
+/*
 (function($) {
 	$(function() {
 		if(!('placeholder' in document.createElement("input"))) { //don't do any work if we don't have to!
@@ -30,3 +70,4 @@
 	})
 
 })(jQuery);
+*/
