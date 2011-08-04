@@ -5,6 +5,12 @@
  
  */
 
+/*
+ * Instructions for Use:
+ * This file contains a jQuery & JavaScript ONLY version. Include this file in your page and DELETE the version you are not using. Full instructions on usage are available on the Github repo:
+ * https://github.com/jackfranklin/HTML5-Placeholder-PolyFill
+ */
+
 //JavaScript only Version
 
 var placeholderFix = function() {
