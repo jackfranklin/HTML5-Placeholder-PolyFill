@@ -20,24 +20,24 @@ var placeholderFix = function() {
         var origColours = {};
         for(var i = 0; i < inputs.length; i++)
         {
-            console.log(i);
-            console.log(inputs[i]);
             var curInput = inputs[i];
+            console.log(curInput);
             origColours[i] = curInput.style.color;
             if(curInput.getAttribute("type") !== "text") break;
             curInput.setAttribute("value", curInput.getAttribute("placeholder"));
             curInput.style.color = "#585858";
 
             curInput.onfocus = function() {
-                if(curInput.getAttribute("value") === curInput.getAttribute("placeholder")) {
-                    curInput.setAttribute("value","");
-                    curInput.style.color = origColours[i];
+                console.log("Focused: ", this);
+                if(this.getAttribute("value") === this.getAttribute("placeholder")) {
+                    this.setAttribute("value","");
+                    this.style.color = origColours[i];
                 }
             }
             curInput.onblur = function() {
-                if(curInput.getAttribute("value") === "") {
-                    curInput.setAttribute("value", curInput.getAttribute("placeholder"));
-                    curInput.style.color = "#585858";
+                if(this.getAttribute("value") === "") {
+                    this.setAttribute("value", this.getAttribute("placeholder"));
+                    this.style.color = "#585858";
                 }
             }
 
