@@ -15,7 +15,7 @@ Things I will be fixing in the future
 
 2. Should be re-factored into a jQuery extension.
 
-3. Would also like to branch into a non-jQuery version too.
+3. Would also like to branch into a non-jQuery version too. - **DONE**
 
 #Suggestions?
 Create an issue here or tweet me @Jack_Franklin
