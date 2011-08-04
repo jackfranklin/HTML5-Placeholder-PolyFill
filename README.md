@@ -3,9 +3,11 @@ Firstly, I know this is nothing new and I'm sure a lot of other people have writ
 
 #Usage
 The file placeholder-fix.js comes with 2 versions of the code, a jQuery version and a pure JS version. Include the file and then delete the version you're not using. If you're using the non-jQuery version, you need to tell the function to run, probably on `window.onload` :
+
     window.onload = function() {
         placeholderFix();
     }
+
 If you're using the jQuery version, you just need to include the file. *No extra coding is needed.*
 
 #Current Issues
